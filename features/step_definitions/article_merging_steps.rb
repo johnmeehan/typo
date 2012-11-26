@@ -19,8 +19,8 @@ end
 
 Given /^I am not an admin$/ do
   	visit '/accounts/login'
-  	fill_in 'user_login', :with => 'normaluser'
-  	fill_in 'user_password', :with => 'aaaaaaaa'
+  	fill_in 'user_login', :with => "normaluser"
+  	fill_in 'user_password', :with => "aaaaaaaa"
   	click_button 'login'
 end
 
@@ -30,8 +30,8 @@ end
 
 Given /^I am logged in as admin$/ do
     	visit '/accounts/login'
-  	fill_in 'user_login', :with => 'admin'
-  	fill_in 'user_password', :with => 'aaaaaaaa'
+  	fill_in 'user_login', :with => "admin"
+  	fill_in 'user_password', :with => "aaaaaaa"
   	click_button 'login'
 end
 

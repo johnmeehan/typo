@@ -17,10 +17,11 @@ Feature: Article Merging
     |1	|Hard Sums|admin		|some contents	|true          	|2012-11-24 12:12:12|
     |2	|Spellings|normaluser	|ABCs		|true			|2012-11-23 11:11:11|
 
-  Scenario: A non-admin cannot merge articles
-  	Given I am not an admin
-  	When I am on the edit article page
-  	Then I should not see the "merge articles" form
+  #Scenario: A non-admin cannot merge articles
+  	# possible new feature as it is for a non admin
+  #	Given I am not an admin
+  #	When I am on the edit article page
+  #	Then I should not see the "merge articles" form
   	
   Scenario: When articles are merged, the merged article should contain the text of both previous articles.
   	Given I am logged in as admin
