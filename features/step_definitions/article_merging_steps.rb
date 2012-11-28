@@ -21,23 +21,30 @@ Given /^I am not an admin$/ do
   	visit '/accounts/login'
   	fill_in 'user_login', :with => "normaluser"
   	fill_in 'user_password', :with => "aaaaaaaa"
-  	click_button 'login'
+  	click_button 'Login'
 end
 
-Then /^I should not see the "(.*?)" form$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+#Then /^I should not see the "(.*?)" form$/ do |arg1|
+#  pending # express the regexp above with the code you wish you had
+#end
+
+
+
+Given /^I am logged in as normaluser$/ do
+  	visit '/accounts/login'
+  	fill_in 'user_login', :with => "normaluser"
+  	fill_in 'user_password', :with => "aaaaaaaa"
+  	click_button 'Login'
 end
 
 Given /^I am logged in as admin$/ do
-    	visit '/accounts/login'
-  	fill_in 'user_login', :with => "admin"
-  	fill_in 'user_password', :with => "aaaaaaaa"
-  	click_button 'login'
-end
-
-Given /^I am logged in as normaluser$/ do
   visit '/accounts/login'
-  	fill_in 'user_login', :with => "normaluser"
-  	fill_in 'user_password', :with => "aaaaaaaa"
-  	click_button 'login'
+  fill_in 'user_login', :with => 'admin'
+  fill_in 'user_password', :with => 'aaaaaaaa'
+  click_button 'Login'
+  if page.respond_to? :should
+    page.should have_content('Login successful')
+  else
+    assert page.has_content?('Login successful')
+  end
 end

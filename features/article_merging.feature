@@ -17,10 +17,11 @@ Feature: Article Merging
     |1	|Hard Sums|admin		|some contents	|true          	|2012-11-24 12:12:12|
     |2	|Spellings|normaluser	|ABCs		|true			|2012-11-23 11:11:11|
 
-  	
+	  	
   Scenario: When articles are merged, the merged article should contain the text of both previous articles.
   	#2
   	Given I am logged in as admin
+  	#Given I am on the admin panel
   	Then I should see "Hard Sums"
   	When I follow "Hard Sums"
   	When I fill in "article_id_merge" with "2"
